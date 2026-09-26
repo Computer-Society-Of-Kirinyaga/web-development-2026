@@ -1,0 +1,277 @@
+/* ==========================================================================
+   Base & Theme Custom Properties
+   ========================================================================== */
+:root {
+  --bg: #090909;
+  --panel: #0d0d0d;
+  --fg: #d3c8b8;
+  --muted: #7d766c;
+  --accent: #ff5b36;
+  --accent-hover: #ff7352;
+  --line: rgba(255, 255, 255, 0.07);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232220;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5b36;
+}
+
+/* ==========================================================================
+   Animations & Keyframes
+   ========================================================================== */
+.hero-word {
+  display: inline-block;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  transform: translateY(1.25rem);
+  opacity: 0;
+  animation: wipeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes wipeUp {
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.section-line {
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-line.active {
+  transform: scaleX(1);
+}
+
+.marquee-wrapper {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-wrapper:hover {
+  animation-play-state: paused;
+}
+
+/* ==========================================================================
+   Sticky Project Stacking Cards (Original Clean Border)
+   ========================================================================== */
+.sticky-stack-container {
+  position: relative;
+}
+
+.sticky-project-card {
+  position: sticky;
+  top: 6.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform, top;
+}
+
+@media (min-width: 768px) {
+  .sticky-project-card:nth-child(1) {
+    top: 6.5rem;
+  }
+  .sticky-project-card:nth-child(2) {
+    top: 7.75rem;
+  }
+  .sticky-project-card:nth-child(3) {
+    top: 9rem;
+  }
+}
+
+.sticky-project-card:hover {
+  border-color: rgba(255, 91, 54, 0.4);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 91, 54, 0.08);
+}
+
+/* Project Image Overlay */
+.project-img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(255, 91, 54, 0.96),
+    rgba(255, 91, 54, 0.88)
+  );
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-card:hover .project-img-overlay,
+.sticky-project-card:hover .project-img-overlay {
+  transform: translateY(0);
+}
+
+.about-line {
+  display: block;
+}
+
+.about-line span {
+  display: inline;
+}
+
+.about-line .highlight {
+  color: var(--accent);
+}
+
+.soft-glow {
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(255, 91, 54, 0.05),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.03),
+      transparent 30%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.02),
+      transparent 18%,
+      transparent 82%,
+      rgba(255, 255, 255, 0.02)
+    );
+}
+
+/* ==========================================================================
+   Bento Grid Styling
+   ========================================================================== */
+.bento-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: #0d0d0d;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 91, 54, 0.4);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 91, 54, 0.08);
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Navigation Links & Hover Effects
+   ========================================================================== */
+.nav-link {
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #f5ede2;
+}
+
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 91, 54, 0.35);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 91, 54, 0.06);
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 768px) {
+  body {
+    cursor: auto !important;
+  }
+  #cursor {
+    display: none !important;
+  }
+  .sticky-project-card {
+    top: 5.5rem !important;
+  }
+}

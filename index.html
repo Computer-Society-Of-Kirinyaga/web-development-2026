@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ravindra Kushwaha — MERN Stack Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Ravindra Kushwaha — MERN Stack Developer building high-performance digital products, full-stack web applications, and APIs."
+    />
+
+    <!-- Tailwind CSS CDN & Lucide Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Modular CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="antialiased bg-[#090909] text-[#d3c8b8] selection:bg-[#ff5b36] selection:text-white">
+    <!-- Standard Header & Navigation Bar -->
+    <header id="navbar" class="fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-[#090909]/80 backdrop-blur-md border-b border-white/[0.08]">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10 md:py-5">
+        <!-- Brand Logo -->
+        <a href="#home" class="flex items-center gap-3 group">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-[#d3c8b8] text-[#090909] font-bold text-sm tracking-wider transition-transform duration-300 group-hover:scale-105 group-hover:bg-[#ff5b36] group-hover:text-white">
+            <i class="h-5 w-5" data-lucide="code-2"></i>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-base font-bold tracking-tight text-[#d3c8b8] group-hover:text-white transition-colors">
+              Ravindra Kushwaha
+            </span>
+            <span class="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7d766c]">
+              MERN Developer
+            </span>
+          </div>
+        </a>
+
+        <!-- Standard Horizontal Desktop Navbar -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a class="nav-link text-sm font-semibold uppercase tracking-[0.18em] text-[#9a9183] hover:text-[#d3c8b8] transition-colors" href="#home">Home</a>
+          <a class="nav-link text-sm font-semibold uppercase tracking-[0.18em] text-[#9a9183] hover:text-[#d3c8b8] transition-colors" href="#about">About</a>
+          <a class="nav-link text-sm font-semibold uppercase tracking-[0.18em] text-[#9a9183] hover:text-[#d3c8b8] transition-colors" href="#projects">Projects</a>
+          <a class="nav-link text-sm font-semibold uppercase tracking-[0.18em] text-[#9a9183] hover:text-[#d3c8b8] transition-colors" href="#blogs">Blogs</a>
+          <a class="nav-link text-sm font-semibold uppercase tracking-[0.18em] text-[#9a9183] hover:text-[#d3c8b8] transition-colors" href="#contact">Contact</a>
+        </nav>
+
+        <!-- Desktop CTA -->
+        <div class="hidden md:flex items-center gap-4">
+          <a
+            class="inline-flex items-center gap-2 rounded-full border border-[#ff5b36]/40 bg-[#ff5b36]/10 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-[#ff5b36] transition-all duration-300 hover:bg-[#ff5b36] hover:text-white hover:border-[#ff5b36] hover:shadow-[0_0_20px_rgba(255,91,54,0.3)]"
+            href="#contact"
+          >
+            <span>Let's Talk</span>
+            <i class="h-3.5 w-3.5" data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="md:hidden flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-[#111111] text-[#d3c8b8] transition-colors hover:border-[#ff5b36] hover:text-[#ff5b36] focus:outline-none"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          <i id="menu-icon-open" class="h-5 w-5" data-lucide="menu"></i>
+          <i id="menu-icon-close" class="h-5 w-5 hidden" data-lucide="x"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Full-Screen Drawer -->
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 z-40 flex flex-col bg-[#090909] translate-x-full transition-transform duration-300 ease-in-out md:hidden"
+      aria-hidden="true"
+    >
+      <!-- Drawer Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/[0.08]">
+        <a href="#home" class="mobile-nav-link flex items-center gap-3 group">
+          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#d3c8b8] text-[#090909]">
+            <i class="h-4 w-4" data-lucide="code-2"></i>
+          </div>
+          <span class="text-sm font-bold tracking-tight text-[#d3c8b8]">Ravindra Kushwaha</span>
+        </a>
+        <button
+          id="mobile-menu-close"
+          type="button"
+          class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-[#111] text-[#d3c8b8] hover:border-[#ff5b36] hover:text-[#ff5b36] transition-colors focus:outline-none"
+          aria-label="Close navigation menu"
+        >
+          <i class="h-5 w-5" data-lucide="x"></i>
+        </button>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="flex flex-col flex-1 justify-center px-8 gap-2">
+        <a href="#home"    class="mobile-nav-link group flex items-center justify-between py-5 border-b border-white/[0.06]">
+          <div class="flex items-center gap-4">
+            <span class="text-xs font-mono text-[#ff5b36] w-5">01</span>
+            <span class="text-3xl font-bold uppercase tracking-tight text-[#d3c8b8] group-hover:text-white transition-colors">Home</span>
+          </div>
+          <i class="h-5 w-5 text-[#3d3830] group-hover:text-[#ff5b36] transition-colors" data-lucide="arrow-up-right"></i>
+        </a>
+        <a href="#about"   class="mobile-nav-link group flex items-center justify-between py-5 border-b border-white/[0.06]">
+          <div class="flex items-center gap-4">
+            <span class="text-xs font-mono text-[#ff5b36] w-5">02</span>
+            <span class="text-3xl font-bold uppercase tracking-tight text-[#d3c8b8] group-hover:text-white transition-colors">About</span>
+          </div>
+          <i class="h-5 w-5 text-[#3d3830] group-hover:text-[#ff5b36] transition-colors" data-lucide="arrow-up-right"></i>
+        </a>
+        <a href="#projects" class="mobile-nav-link group flex items-center justify-between py-5 border-b border-white/[0.06]">
+          <div class="flex items-center gap-4">
+            <span class="text-xs font-mono text-[#ff5b36] w-5">03</span>
+            <span class="text-3xl font-bold uppercase tracking-tight text-[#d3c8b8] group-hover:text-white transition-colors">Projects</span>
+          </div>
+          <i class="h-5 w-5 text-[#3d3830] group-hover:text-[#ff5b36] transition-colors" data-lucide="arrow-up-right"></i>
+        </a>
+        <a href="#blogs"   class="mobile-nav-link group flex items-center justify-between py-5 border-b border-white/[0.06]">
+          <div class="flex items-center gap-4">
+            <span class="text-xs font-mono text-[#ff5b36] w-5">04</span>
+            <span class="text-3xl font-bold uppercase tracking-tight text-[#d3c8b8] group-hover:text-white transition-colors">Blogs</span>
+          </div>
+          <i class="h-5 w-5 text-[#3d3830] group-hover:text-[#ff5b36] transition-colors" data-lucide="arrow-up-right"></i>
+        </a>
+        <a href="#contact" class="mobile-nav-link group flex items-center justify-between py-5">
+          <div class="flex items-center gap-4">
+            <span class="text-xs font-mono text-[#ff5b36] w-5">05</span>
+            <span class="text-3xl font-bold uppercase tracking-tight text-[#d3c8b8] group-hover:text-white transition-colors">Contact</span>
+          </div>
+          <i class="h-5 w-5 text-[#3d3830] group-hover:text-[#ff5b36] transition-colors" data-lucide="arrow-up-right"></i>
+        </a>
+      </nav>
+
+      <!-- Drawer Footer -->
+      <div class="px-8 py-8 border-t border-white/[0.08]">
+        <div class="flex items-center justify-between">
+          <a
+            href="#contact"
+            class="mobile-nav-link inline-flex items-center gap-2 rounded-full bg-[#ff5b36] px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-[#ff7352]"
+          >
+            <span>Let's Talk</span>
+            <i class="h-4 w-4" data-lucide="arrow-up-right"></i>
+          </a>
+          <div class="flex items-center gap-4 text-[#5a5248]">
+            <a href="https://github.com/Ravindra001rk" target="_blank" class="hover:text-[#ff5b36] transition-colors" aria-label="GitHub">
+              <i class="h-5 w-5" data-lucide="github"></i>
+            </a>
+            <a href="mailto:ravindrakushwaha2k20@gmail.com" class="hover:text-[#ff5b36] transition-colors" aria-label="Email">
+              <i class="h-5 w-5" data-lucide="mail"></i>
+            </a>
+            <a href="tel:+9779746522742" class="hover:text-[#ff5b36] transition-colors" aria-label="Phone">
+              <i class="h-5 w-5" data-lucide="phone"></i>
+            </a>
+          </div>
+        </div>
+        <p class="mt-4 text-xs text-[#4a4540]">Birgunj, Nepal · ravindrakushwaha2k20@gmail.com</p>
+      </div>
+    </div>
+
+    <!-- Drawer Backdrop -->
+    <div id="mobile-menu-backdrop" class="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm hidden md:hidden"></div>
+
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="relative flex min-h-screen items-center px-6 pt-32 pb-20 md:px-10 md:pt-40"
+    >
+      <div class="absolute inset-0 soft-glow pointer-events-none"></div>
+      <div
+        class="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-12 lg:gap-16"
+      >
+        <!-- Hero Text (Left 7 Cols) -->
+        <div class="lg:col-span-7">
+          <p
+            class="mb-8 text-xs font-semibold uppercase tracking-[0.3em] text-[#7d766c]"
+          >
+            MERN Stack Developer — Birgunj, Nepal
+          </p>
+          <h1
+            class="max-w-5xl text-6xl font-semibold uppercase leading-none tracking-tight text-[#d3c8b8] sm:text-7xl md:text-8xl lg:text-[10.5rem]"
+          >
+            <span class="hero-word" style="animation-delay: 0.08s"> I </span>
+            <span class="hero-word" style="animation-delay: 0.16s">
+              build
+            </span>
+            <br />
+            <span
+              class="hero-word text-[#ff5b36]"
+              style="animation-delay: 0.24s"
+            >
+              fast
+            </span>
+            <span class="hero-word" style="animation-delay: 0.32s">
+              digital
+            </span>
+            <br />
+            <span class="hero-word" style="animation-delay: 0.4s">
+              products
+            </span>
+          </h1>
+          <p
+            class="mt-8 max-w-2xl text-lg font-normal leading-8 text-[#9f978a] md:text-xl"
+          >
+            Full-stack applications with strong architectural foundations, sharp interfaces,
+            and business-focused execution.
+          </p>
+
+          <!-- Action CTA Buttons -->
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="#projects"
+              class="hover-trigger inline-flex items-center gap-3 rounded-full bg-[#ff5b36] px-8 py-4 text-sm sm:text-base font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[#ff7352] hover:shadow-[0_0_24px_rgba(255,91,54,0.45)]"
+            >
+              <span>Explore Projects</span>
+              <i class="h-4 w-4" data-lucide="arrow-down-right"></i>
+            </a>
+            <a
+              href="#contact"
+              class="hover-trigger inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/5 px-8 py-4 text-sm sm:text-base font-bold uppercase tracking-wider text-[#d3c8b8] transition-all duration-300 hover:border-white/40 hover:bg-white/10 hover:text-white"
+            >
+              <span>Get in Touch</span>
+              <i class="h-4 w-4" data-lucide="mail"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Framed Hero Image (Right 5 Cols) -->
+        <div class="lg:col-span-5 lg:justify-self-end w-full max-w-[420px] mx-auto lg:mx-0 lg:-mt-16">
+          <div class="relative group">
+            <!-- Subtle Orange Accent Ambient Glow -->
+            <div class="absolute -inset-2 rounded-[2.5rem] bg-gradient-to-tr from-[#ff5b36]/25 via-[#ff5b36]/8 to-transparent blur-3xl opacity-70 group-hover:opacity-100 transition duration-700"></div>
+
+            <!-- Image Card Frame -->
+            <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#121212] p-3 shadow-2xl shadow-black">
+              <div class="relative overflow-hidden rounded-[1.5rem] h-[420px] sm:h-[500px] md:h-[540px] lg:h-[580px] bg-[#181818]">
+                <img
+                  src="assets/hero.jpg"
+                  alt="Ravindra Kushwaha — MERN Stack Developer"
+                  class="h-full w-full object-cover object-top grayscale contrast-[1.05] transition duration-700 group-hover:grayscale-0 group-hover:scale-[1.03]"
+                  loading="eager"
+                />
+                <!-- Very subtle bottom fade only — doesn't hide the face -->
+                <div class="absolute inset-0 bg-gradient-to-t from-[#090909]/70 via-transparent via-60% to-transparent"></div>
+
+                <!-- Floating Info Badge on Image -->
+                <div class="absolute bottom-4 inset-x-4 rounded-xl border border-white/15 bg-[#0a0a0a]/85 backdrop-blur-md p-4 flex items-center justify-between">
+                  <div>
+                    <p class="text-sm font-bold tracking-tight text-white">Ravindra Kushwaha</p>
+                    <p class="text-xs font-mono uppercase tracking-wider text-[#9f978a]">MERN Stack Developer</p>
+                  </div>
+                  <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-[#ff5b36]/20 text-[#ff5b36]">
+                    <i class="h-4 w-4" data-lucide="code-2"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider Line -->
+    <div class="px-6 md:px-10">
+      <div class="section-line observe-line"></div>
+    </div>
+
+    <!-- About Section -->
+    <section class="relative px-6 py-24 md:px-10 md:py-32" id="about">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-10 flex items-center justify-between">
+          <p
+            class="text-sm font-semibold uppercase tracking-[0.35em] text-[#bfb4a3] flex items-center gap-3"
+          >
+            <span class="h-1.5 w-6 bg-[#ff5b36]"></span>
+            About Me
+          </p>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#7d766c]">
+            01 / OVERVIEW
+          </span>
+        </div>
+        <div class="max-w-6xl">
+          <h2
+            class="text-5xl font-semibold leading-[0.94] tracking-tight text-[#d3c8b8] sm:text-6xl md:text-7xl lg:text-[6.8rem]"
+          >
+            <span class="about-line">
+              I'm a
+              <span class="highlight"> selectively </span>
+            </span>
+            <span class="about-line">
+              <span class="highlight"> skilled </span>
+              product
+            </span>
+            <span class="about-line"> developer with </span>
+            <span class="about-line"> strong focus on </span>
+            <span class="about-line"> producing high </span>
+            <span class="about-line"> quality &amp; impactful </span>
+            <span class="about-line">
+              digital experience
+              <span class="text-[#ff5b36]"> . </span>
+            </span>
+          </h2>
+          <p
+            class="mt-10 max-w-3xl text-lg leading-8 text-[#8d8579] md:text-xl"
+          >
+            I'm Ravindra — a full stack MERN developer based in Birgunj, Nepal. I build complete web
+            applications from database architecture to smooth interactive interfaces, with an unwavering emphasis on
+            speed, clean code, security, and measurable business outcomes.
+          </p>
+
+          <!-- Key Highlights / Metrics -->
+          <div class="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4 border-t border-white/10 pt-10">
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-bold text-[#d3c8b8] tracking-tight">2+ <span class="text-[#ff5b36]">Yrs</span></div>
+              <div class="text-xs uppercase tracking-wider text-[#7d766c]">Experience</div>
+            </div>
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-bold text-[#d3c8b8] tracking-tight">10+</div>
+              <div class="text-xs uppercase tracking-wider text-[#7d766c]">Production Features</div>
+            </div>
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-bold text-[#d3c8b8] tracking-tight">100%</div>
+              <div class="text-xs uppercase tracking-wider text-[#7d766c]">Client Satisfaction</div>
+            </div>
+            <div class="space-y-1">
+              <div class="text-3xl sm:text-4xl font-bold text-[#d3c8b8] tracking-tight">24/7</div>
+              <div class="text-xs uppercase tracking-wider text-[#7d766c]">Reliable Support</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Marquee Section & Wrapped Experience Chips -->
+    <section
+      class="overflow-hidden border-y border-white/5 bg-[#0b0b0b] py-16 text-[#d3c8b8] md:py-20"
+    >
+      <div
+        class="marquee-wrapper gap-8 whitespace-nowrap text-5xl font-semibold uppercase tracking-tight opacity-95 sm:text-6xl md:text-7xl lg:text-[5.5rem]"
+      >
+        <span> React.js </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> Node.js </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> Express.js </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> MongoDB </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> REST APIs </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> Tailwind CSS </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> JWT &amp; Auth </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> Cloud Deployments </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> React.js </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> Node.js </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> Express.js </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> MongoDB </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> REST APIs </span>
+        <span class="text-[#ff5b36]"> · </span>
+        <span> Tailwind CSS </span>
+        <span class="text-[#ff5b36]"> · </span>
+      </div>
+
+      <!-- Wrapped Tech Stack Experience Chips -->
+      <div class="mx-auto mt-12 flex max-w-7xl flex-wrap items-center justify-start gap-3.5 px-6 md:px-10">
+        <div
+          class="rounded-full border border-white/20 bg-[#121212] px-5 py-2.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#d3c8b8] transition-all duration-300 hover:border-[#ff5b36] hover:bg-[#ff5b36]/10 hover:text-white"
+        >
+          React / 2yr
+        </div>
+        <div
+          class="rounded-full border border-white/20 bg-[#121212] px-5 py-2.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#d3c8b8] transition-all duration-300 hover:border-[#ff5b36] hover:bg-[#ff5b36]/10 hover:text-white"
+        >
+          Node.js / 1yr
+        </div>
+        <div
+          class="rounded-full border border-white/20 bg-[#121212] px-5 py-2.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#d3c8b8] transition-all duration-300 hover:border-[#ff5b36] hover:bg-[#ff5b36]/10 hover:text-white"
+        >
+          MongoDB / 1yr
+        </div>
+        <div
+          class="rounded-full border border-white/20 bg-[#121212] px-5 py-2.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#d3c8b8] transition-all duration-300 hover:border-[#ff5b36] hover:bg-[#ff5b36]/10 hover:text-white"
+        >
+          REST APIs / 2yr
+        </div>
+        <div
+          class="rounded-full border border-white/20 bg-[#121212] px-5 py-2.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#d3c8b8] transition-all duration-300 hover:border-[#ff5b36] hover:bg-[#ff5b36]/10 hover:text-white"
+        >
+          UI Systems &amp; Tailwind / 2yr
+        </div>
+        <div
+          class="rounded-full border border-white/20 bg-[#121212] px-5 py-2.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#d3c8b8] transition-all duration-300 hover:border-[#ff5b36] hover:bg-[#ff5b36]/10 hover:text-white"
+        >
+          Sparrow SMS API / Integrated
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section (With Clean Original Border & Sticky Stacking) -->
+    <section class="bg-[#090909] px-6 py-24 md:px-10 md:py-32" id="projects">
+      <!-- Alias anchor for #work links -->
+      <div id="work" class="relative -top-24"></div>
+
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-16 flex items-center justify-between">
+          <div class="flex items-center gap-6 flex-1">
+            <h2
+              class="text-4xl font-semibold uppercase tracking-tight text-[#d3c8b8] md:text-5xl"
+            >
+              Featured Work
+            </h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+          </div>
+          <span class="hidden sm:inline-block ml-6 text-xs font-mono uppercase tracking-widest text-[#7d766c]">
+            02 / PROJECTS (STACKING)
+          </span>
+        </div>
+
+        <!-- Sticky Project Cards Stack Container -->
+        <div class="sticky-stack-container space-y-12 md:space-y-20">
+
+          <!-- Sticky Project 01: Kriti Sublimation Platform -->
+          <div
+            class="sticky-project-card z-10 group grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16 rounded-3xl border border-white/10 bg-[#0d0d0d] p-8 sm:p-12 md:p-14 lg:p-16 min-h-[520px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl shadow-black"
+          >
+            <div
+              class="order-2 flex flex-col justify-between lg:order-1 lg:col-span-7"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-4 mb-6">
+                  <div class="flex items-center gap-3">
+                    <span class="rounded-full bg-[#ff5b36]/15 border border-[#ff5b36]/30 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#ff5b36]">
+                      01 / Flagship Commercial
+                    </span>
+                    <span class="text-xs text-[#7d766c] uppercase tracking-widest">Live Platform</span>
+                  </div>
+                  <a
+                    class="hover-trigger inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#d3c8b8] hover:text-[#ff5b36] transition-colors"
+                    href="https://kritisublimation.com.np"
+                    target="_blank"
+                  >
+                    <span>Visit Live</span>
+                    <i class="h-3.5 w-3.5" data-lucide="external-link"> </i>
+                  </a>
+                </div>
+
+                <h3
+                  class="mb-5 text-3xl sm:text-4xl font-bold tracking-tight text-white"
+                >
+                  Kriti Sublimation Platform
+                </h3>
+                <p
+                  class="mb-6 text-base md:text-lg leading-8 text-[#9b9387]"
+                >
+                  Full-stack commercial platform for a premier printing and ID card business in Birgunj, Nepal. Streamlining customer applications, secure photo retrieval, media management, and automated client communication.
+                </p>
+
+                <ul
+                  class="mb-8 space-y-3.5 text-sm md:text-base leading-7 text-[#c4baaa]"
+                >
+                  <li class="flex items-start gap-3">
+                    <span class="text-[#ff5b36] font-bold">✓</span>
+                    <span>Online ID card application workflow tailored for schools, corporate offices, and students.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-[#ff5b36] font-bold">✓</span>
+                    <span>Real-time submission tracking with unique application IDs and tokenized download links.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-[#ff5b36] font-bold">✓</span>
+                    <span>Automated SMS dispatch via Sparrow SMS API in Nepali &amp; English.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-[#ff5b36] font-bold">✓</span>
+                    <span>Admin control center with Excel data export, bulk updates, and secure asset hosting.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="flex flex-wrap gap-2.5 pt-6 border-t border-white/[0.08]">
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">React</span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">Node.js</span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">Express</span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">MongoDB</span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">Sparrow SMS</span>
+              </div>
+            </div>
+
+            <div class="order-1 lg:order-2 lg:col-span-5 flex items-center">
+              <div
+                class="project-img-container rounded-2xl w-full flex h-80 sm:h-96 md:h-[440px] lg:h-[500px] items-center justify-center border border-white/10 bg-[#141414] p-8"
+              >
+                <div
+                  class="text-center text-sm font-medium uppercase tracking-[0.28em] text-[#7d766c]"
+                >
+                  <div class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#ff5b36]/10 text-[#ff5b36]">
+                    <i class="h-8 w-8" data-lucide="layout-dashboard"></i>
+                  </div>
+                  <div class="text-[#d3c8b8] font-bold">Platform Interface</div>
+                  <div class="mt-2 text-xs font-normal opacity-70 tracking-widest text-[#9f978a]">
+                    (Hover to preview)
+                  </div>
+                </div>
+                <div class="project-img-overlay rounded-2xl">
+                  <a
+                    class="hover-trigger inline-flex items-center gap-3 text-2xl font-bold uppercase tracking-tight text-white transition-transform hover:scale-105"
+                    href="https://kritisublimation.com.np"
+                    target="_blank"
+                  >
+                    Open Live Case
+                    <i class="h-6 w-6" data-lucide="external-link"> </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sticky Project 02: Photo Retrieval & Secure Download Portal -->
+          <div
+            class="sticky-project-card z-20 group grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16 rounded-3xl border border-white/10 bg-[#111111] p-8 sm:p-12 md:p-14 lg:p-16 min-h-[520px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl shadow-black"
+          >
+            <div
+              class="order-2 flex flex-col justify-between lg:order-1 lg:col-span-7"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-4 mb-6">
+                  <div class="flex items-center gap-3">
+                    <span class="rounded-full bg-[#ff5b36]/15 border border-[#ff5b36]/30 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#ff5b36]">
+                      02 / Security &amp; Retrieval
+                    </span>
+                    <span class="text-xs text-[#7d766c] uppercase tracking-widest">Client Portal</span>
+                  </div>
+                  <a
+                    class="hover-trigger inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#d3c8b8] hover:text-[#ff5b36] transition-colors"
+                    href="https://kritisublimation.com.np"
+                    target="_blank"
+                  >
+                    <span>Inspect Tool</span>
+                    <i class="h-3.5 w-3.5" data-lucide="external-link"> </i>
+                  </a>
+                </div>
+
+                <h3
+                  class="mb-5 text-3xl sm:text-4xl font-bold tracking-tight text-white"
+                >
+                  Photo Retrieval &amp; Verification System
+                </h3>
+                <p
+                  class="mb-6 text-base md:text-lg leading-8 text-[#9b9387]"
+                >
+                  Client-facing secure photo download portal enabling customers to retrieve high-resolution processed portrait assets and identity cards using OTP/phone verification without public indexing.
+                </p>
+
+                <ul
+                  class="mb-8 space-y-3.5 text-sm md:text-base leading-7 text-[#c4baaa]"
+                >
+                  <li class="flex items-start gap-3">
+                    <span class="text-[#ff5b36] font-bold">✓</span>
+                    <span>Zero data exposure: phone number verification token with temporal expiry.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-[#ff5b36] font-bold">✓</span>
+                    <span>Direct CDN media streaming with download optimization and watermarking preview.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-[#ff5b36] font-bold">✓</span>
+                    <span>Ultra-fast response times powered by MongoDB indexed queries and Express caching.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="flex flex-wrap gap-2.5 pt-6 border-t border-white/[0.08]">
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">Token Auth</span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">Express REST</span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">CDN Storage</span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">Tailwind</span>
+              </div>
+            </div>
+
+            <div class="order-1 lg:order-2 lg:col-span-5 flex items-center">
+              <div
+                class="project-img-container rounded-2xl w-full flex h-80 sm:h-96 md:h-[440px] lg:h-[500px] items-center justify-center border border-white/10 bg-[#161616] p-8"
+              >
+                <div
+                  class="text-center text-sm font-medium uppercase tracking-[0.28em] text-[#7d766c]"
+                >
+                  <div class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#ff5b36]/10 text-[#ff5b36]">
+                    <i class="h-8 w-8" data-lucide="shield-check"></i>
+                  </div>
+                  <div class="text-[#d3c8b8] font-bold">Secure Access Flow</div>
+                  <div class="mt-2 text-xs font-normal opacity-70 tracking-widest text-[#9f978a]">
+                    (Hover to preview)
+                  </div>
+                </div>
+                <div class="project-img-overlay rounded-2xl">
+                  <a
+                    class="hover-trigger inline-flex items-center gap-3 text-2xl font-bold uppercase tracking-tight text-white transition-transform hover:scale-105"
+                    href="https://kritisublimation.com.np"
+                    target="_blank"
+                  >
+                    Explore Flow
+                    <i class="h-6 w-6" data-lucide="arrow-up-right"> </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sticky Project 03: Scalable E-Commerce & Inventory Core -->
+          <div
+            class="sticky-project-card z-30 group grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16 rounded-3xl border border-white/10 bg-[#131313] p-8 sm:p-12 md:p-14 lg:p-16 min-h-[520px] md:min-h-[580px] lg:min-h-[620px] shadow-2xl shadow-black"
+          >
+            <div
+              class="order-2 flex flex-col justify-between lg:order-1 lg:col-span-7"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-4 mb-6">
+                  <div class="flex items-center gap-3">
+                    <span class="rounded-full bg-[#ff5b36]/15 border border-[#ff5b36]/30 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#ff5b36]">
+                      03 / Full-Stack Commerce
+                    </span>
+                    <span class="text-xs text-[#7d766c] uppercase tracking-widest">Architecture Suite</span>
+                  </div>
+                  <a
+                    class="hover-trigger inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#d3c8b8] hover:text-[#ff5b36] transition-colors"
+                    href="https://github.com/Ravindra001rk"
+                    target="_blank"
+                  >
+                    <span>View GitHub Repo</span>
+                    <i class="h-3.5 w-3.5" data-lucide="github"> </i>
+                  </a>
+                </div>
+
+                <h3
+                  class="mb-5 text-3xl sm:text-4xl font-bold tracking-tight text-white"
+                >
+                  Scalable E-Commerce &amp; Inventory Suite
+                </h3>
+                <p
+                  class="mb-6 text-base md:text-lg leading-7 text-[#9b9387]"
+                >
+                  Enterprise-grade MERN stack commerce framework with synchronized multi-currency cart state, inventory locking, role-based admin dashboard, and payment gateway webhooks.
+                </p>
+
+                <ul
+                  class="mb-8 space-y-3.5 text-sm md:text-base leading-7 text-[#c4baaa]"
+                >
+                  <li class="flex items-start gap-3">
+                    <span class="text-[#ff5b36] font-bold">✓</span>
+                    <span>Granular RBAC: Admin, Manager, and Customer permission tiers with JWT cookies.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-[#ff5b36] font-bold">✓</span>
+                    <span>Atomic inventory reservation during checkout preventing race conditions.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-[#ff5b36] font-bold">✓</span>
+                    <span>Compound aggregation pipeline for faceted filtering by category, price, and ratings.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="flex flex-wrap gap-2.5 pt-6 border-t border-white/[0.08]">
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">React Context</span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">Node.js</span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">MongoDB Aggregations</span>
+                <span class="rounded-full bg-white/5 border border-white/10 px-3.5 py-1.5 text-xs font-mono text-[#b8ad9e]">Payment Webhooks</span>
+              </div>
+            </div>
+
+            <div class="order-1 lg:order-2 lg:col-span-5 flex items-center">
+              <div
+                class="project-img-container rounded-2xl w-full flex h-80 sm:h-96 md:h-[440px] lg:h-[500px] items-center justify-center border border-white/10 bg-[#181818] p-8"
+              >
+                <div
+                  class="text-center text-sm font-medium uppercase tracking-[0.28em] text-[#7d766c]"
+                >
+                  <div class="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#ff5b36]/10 text-[#ff5b36]">
+                    <i class="h-8 w-8" data-lucide="shopping-bag"></i>
+                  </div>
+                  <div class="text-[#d3c8b8] font-bold">Commerce Engine</div>
+                  <div class="mt-2 text-xs font-normal opacity-70 tracking-widest text-[#9f978a]">
+                    (Hover to preview)
+                  </div>
+                </div>
+                <div class="project-img-overlay rounded-2xl">
+                  <a
+                    class="hover-trigger inline-flex items-center gap-3 text-2xl font-bold uppercase tracking-tight text-white transition-transform hover:scale-105"
+                    href="https://github.com/Ravindra001rk"
+                    target="_blank"
+                  >
+                    View Source
+                    <i class="h-6 w-6" data-lucide="github"> </i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider Line -->
+    <div class="px-6 md:px-10">
+      <div class="section-line observe-line"></div>
+    </div>
+
+    <!-- Blogs Section (Attractive Bento Grid) -->
+    <section class="bg-[#090909] px-6 py-24 md:px-10 md:py-32" id="blogs">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-16 flex items-center justify-between">
+          <div class="flex items-center gap-6 flex-1">
+            <h2
+              class="text-4xl font-semibold uppercase tracking-tight text-[#d3c8b8] md:text-5xl"
+            >
+              Blogs &amp; Insights
+            </h2>
+            <div class="h-px flex-1 bg-white/10"></div>
+          </div>
+          <span class="hidden sm:inline-block ml-6 text-xs font-mono uppercase tracking-widest text-[#7d766c]">
+            03 / BENTO ARTICLES
+          </span>
+        </div>
+
+        <p class="max-w-2xl text-lg text-[#8d8579] mb-12">
+          Architectural breakdowns, engineering case studies, UI systems, and backend patterns distilled from production experience.
+        </p>
+
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+          <!-- Bento Card 1: Featured Main Article (Spans 8 Columns) -->
+          <article class="bento-card md:col-span-8 group flex flex-col justify-between p-8 md:p-10">
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                <div class="flex items-center gap-2.5">
+                  <span class="rounded-full bg-[#ff5b36]/20 border border-[#ff5b36]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#ff5b36]">
+                    Featured Deep Dive
+                  </span>
+                  <span class="text-xs font-mono uppercase tracking-wider text-[#7d766c]">MERN Stack</span>
+                </div>
+                <span class="text-xs font-mono text-[#7d766c]">Sep 2026 • 6 min read</span>
+              </div>
+
+              <h3 class="mb-4 text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-[#ff5b36] transition-colors">
+                Architecting Production-Ready MERN Applications for High Concurrency
+              </h3>
+
+              <p class="text-sm sm:text-base leading-7 text-[#9f978a] mb-6">
+                Scaling Node.js APIs and MongoDB clusters under high request concurrency. Deep dive into connection pooling, query indexing strategies, compound keys, and avoiding memory bloat with <code class="bg-white/10 px-1.5 py-0.5 rounded text-[#ff5b36]">.lean()</code> queries.
+              </p>
+
+              <!-- Mini Feature Highlights -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                <div class="rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs">
+                  <div class="font-bold text-[#d3c8b8] mb-1">Max Pool Size</div>
+                  <div class="text-[#7d766c]">50 connections / pool</div>
+                </div>
+                <div class="rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs">
+                  <div class="font-bold text-[#d3c8b8] mb-1">Lean Queries</div>
+                  <div class="text-[#7d766c]">-60% memory overhead</div>
+                </div>
+                <div class="rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs">
+                  <div class="font-bold text-[#d3c8b8] mb-1">Token TTL</div>
+                  <div class="text-[#7d766c]">15m access / 7d refresh</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-6 border-t border-white/[0.08] flex items-center justify-between">
+              <span class="text-xs text-[#7d766c] font-medium">By Ravindra Kushwaha</span>
+              <button
+                type="button"
+                onclick="openBlogModal('blog-1')"
+                class="hover-trigger inline-flex items-center gap-2 rounded-full bg-[#ff5b36] px-5 py-2 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-[#ff7352]"
+              >
+                <span>Read Full Article</span>
+                <i class="h-3.5 w-3.5" data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Bento Card 2: Telecom SMS Gateways Case Study (Spans 4 Columns) -->
+          <article class="bento-card md:col-span-4 group flex flex-col justify-between p-8">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-6">
+                <span class="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400">
+                  Case Study
+                </span>
+                <span class="text-xs font-mono text-[#7d766c]">4 min read</span>
+              </div>
+
+              <h3 class="mb-3 text-xl font-bold tracking-tight text-white group-hover:text-[#ff5b36] transition-colors">
+                Integrating Telecom SMS Gateways &amp; Webhooks in Node.js
+              </h3>
+
+              <p class="text-xs leading-6 text-[#8d8579] mb-6">
+                Production lessons from connecting Sparrow SMS API in the Kriti Sublimation platform: local language unicode encoding, webhook delivery retries, and asynchronous background queues.
+              </p>
+
+              <div class="rounded-xl border border-white/5 bg-black/40 p-3 font-mono text-[11px] text-[#ff5b36] mb-4">
+                <code>// POST /api/v1/sms/dispatch</code><br/>
+                <span class="text-[#7d766c]">{ status: "QUEUED", provider: "sparrow" }</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/[0.08] flex items-center justify-between">
+              <span class="text-xs text-[#7d766c]">Aug 2026</span>
+              <button
+                type="button"
+                onclick="openBlogModal('blog-2')"
+                class="hover-trigger inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#ff5b36] hover:text-[#ff7352]"
+              >
+                <span>Read Study</span>
+                <i class="h-3.5 w-3.5" data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Bento Card 3: UI Design Systems (Spans 4 Columns) -->
+          <article class="bento-card md:col-span-4 group flex flex-col justify-between p-8">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-6">
+                <span class="rounded-full bg-purple-500/15 border border-purple-500/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-purple-400">
+                  Design Systems
+                </span>
+                <span class="text-xs font-mono text-[#7d766c]">5 min read</span>
+              </div>
+
+              <h3 class="mb-3 text-xl font-bold tracking-tight text-white group-hover:text-[#ff5b36] transition-colors">
+                Building Luxury Dark Minimalist Interfaces with Tailwind
+              </h3>
+
+              <p class="text-xs leading-6 text-[#8d8579] mb-6">
+                Crafting memorable web applications using bone titanium typography, warm deep-charcoal backgrounds, differential blend magnetic cursors, and silky 120Hz micro-animations.
+              </p>
+
+              <!-- Color Palette Swatch Preview -->
+              <div class="flex items-center gap-2 mb-4">
+                <div class="h-6 w-8 rounded bg-[#090909] border border-white/10" title="Dark #090909"></div>
+                <div class="h-6 w-8 rounded bg-[#ff5b36]" title="Accent #ff5b36"></div>
+                <div class="h-6 w-8 rounded bg-[#d3c8b8]" title="Bone #d3c8b8"></div>
+                <div class="h-6 w-8 rounded bg-[#7d766c]" title="Muted #7d766c"></div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/[0.08] flex items-center justify-between">
+              <span class="text-xs text-[#7d766c]">Jul 2026</span>
+              <button
+                type="button"
+                onclick="openBlogModal('blog-3')"
+                class="hover-trigger inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#ff5b36] hover:text-[#ff7352]"
+              >
+                <span>Read Article</span>
+                <i class="h-3.5 w-3.5" data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Bento Card 4: Security & Auth Patterns (Spans 4 Columns) -->
+          <article class="bento-card md:col-span-4 group flex flex-col justify-between p-8">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-6">
+                <span class="rounded-full bg-blue-500/15 border border-blue-500/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-blue-400">
+                  Security
+                </span>
+                <span class="text-xs font-mono text-[#7d766c]">4 min read</span>
+              </div>
+
+              <h3 class="mb-3 text-xl font-bold tracking-tight text-white group-hover:text-[#ff5b36] transition-colors">
+                Zero-Trust Security &amp; Rate Limiting in Express APIs
+              </h3>
+
+              <p class="text-xs leading-6 text-[#8d8579] mb-6">
+                Protecting public endpoints with sliding-window rate limiters, Helmet security headers, httpOnly cookie rotation, and NoSQL injection sanitizer middleware.
+              </p>
+
+              <div class="rounded-xl border border-white/5 bg-white/[0.02] p-3 text-xs text-[#9f978a] space-y-1 mb-4">
+                <div class="flex items-center justify-between">
+                  <span>Rate Limiting:</span>
+                  <span class="text-emerald-400 font-mono">100 req / 15min</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span>Cookie Policy:</span>
+                  <span class="text-emerald-400 font-mono">SameSite=Strict</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/[0.08] flex items-center justify-between">
+              <span class="text-xs text-[#7d766c]">Jun 2026</span>
+              <button
+                type="button"
+                onclick="openBlogModal('blog-4')"
+                class="hover-trigger inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#ff5b36] hover:text-[#ff7352]"
+              >
+                <span>Read Article</span>
+                <i class="h-3.5 w-3.5" data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Bento Card 5: Tech Radar & Code Philosophy (Spans 4 Columns) -->
+          <article class="bento-card md:col-span-4 group flex flex-col justify-between p-8 bg-gradient-to-br from-[#0e0e0e] to-[#141414]">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-6">
+                <span class="rounded-full bg-amber-500/15 border border-amber-500/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-400">
+                  Tech Radar 2026
+                </span>
+              </div>
+
+              <h3 class="mb-3 text-xl font-bold tracking-tight text-white group-hover:text-[#ff5b36] transition-colors">
+                What I'm Currently Exploring
+              </h3>
+
+              <ul class="space-y-2.5 text-xs text-[#9f978a] mb-6">
+                <li class="flex items-center gap-2">
+                  <span class="text-[#ff5b36] font-bold">→</span>
+                  <span>Next.js 15 Server Actions &amp; Turbopack</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#ff5b36] font-bold">→</span>
+                  <span>Redis Upstash &amp; Edge Middleware Caching</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#ff5b36] font-bold">→</span>
+                  <span>Socket.io Multi-Node Cluster Scaling</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-4 border-t border-white/[0.08] flex items-center justify-between">
+              <span class="text-xs text-[#7d766c]">Ongoing Research</span>
+              <a
+                href="#contact"
+                class="hover-trigger inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#ff5b36] hover:text-[#ff7352]"
+              >
+                <span>Let's Discuss</span>
+                <i class="h-3.5 w-3.5" data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Read Article Modal -->
+    <div
+      id="blog-modal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-md p-4 transition-all duration-300"
+    >
+      <div
+        class="relative max-h-[85vh] w-full max-w-3xl overflow-y-auto rounded-2xl border border-white/15 bg-[#0e0e0e] p-6 sm:p-10 shadow-2xl text-[#d3c8b8]"
+      >
+        <button
+          onclick="closeBlogModal()"
+          class="hover-trigger absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#d3c8b8] transition-colors hover:border-[#ff5b36] hover:text-[#ff5b36]"
+          aria-label="Close modal"
+        >
+          <i class="h-5 w-5" data-lucide="x"></i>
+        </button>
+        <div id="blog-modal-content">
+          <!-- Populated by js/blogs.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider Line -->
+    <div class="px-6 md:px-10">
+      <div class="section-line observe-line"></div>
+    </div>
+
+    <!-- Contact Page & Section -->
+    <section
+      class="relative border-t border-white/5 bg-[#0a0a0a] px-6 py-24 md:px-10 md:py-32"
+      id="contact"
+    >
+      <div class="mx-auto max-w-7xl">
+        <!-- Section Header -->
+        <div class="mb-16">
+          <div class="flex items-center justify-between mb-8">
+            <p
+              class="text-xs font-medium uppercase tracking-[0.3em] text-[#7d766c]"
+            >
+              Get In Touch
+            </p>
+            <span class="hidden sm:inline-block text-xs font-mono uppercase tracking-widest text-[#7d766c]">
+              04 / CONTACT
+            </span>
+          </div>
+          <h2
+            class="text-5xl font-semibold uppercase leading-none tracking-tight text-[#d3c8b8] md:text-7xl lg:text-[7.5rem]"
+          >
+            Let's build
+            <br />
+            <span class="text-[#ff5b36]">something.</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-16">
+          <!-- Left Column: Contact Info Cards -->
+          <div class="lg:col-span-5 flex flex-col justify-between space-y-10">
+            <div>
+              <p class="text-lg leading-8 text-[#9b9387]">
+                Have a project in mind, an opportunity to discuss, or want to collaborate on building a high-impact web application? Send a message and let's get started.
+              </p>
+
+              <div class="mt-10 space-y-4">
+                <!-- Email Item -->
+                <a
+                  href="mailto:ravindrakushwaha2k20@gmail.com"
+                  class="group flex items-center justify-between rounded-xl border border-white/10 bg-[#0e0e0e] p-5 transition-all hover:border-[#ff5b36]/40 hover:bg-[#ff5b36]/5"
+                >
+                  <div class="flex items-center gap-4">
+                    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#ff5b36]/10 text-[#ff5b36]">
+                      <i class="h-5 w-5" data-lucide="mail"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs uppercase tracking-[0.2em] text-[#7d766c]">Direct Email</p>
+                      <p class="text-base font-medium text-[#d3c8b8] group-hover:text-white transition-colors">ravindrakushwaha2k20@gmail.com</p>
+                      <p class="text-sm text-[#7d766c]">Click to send a message</p>
+                    </div>
+                  </div>
+                  <i class="h-4 w-4 shrink-0 text-[#3d3830] group-hover:text-[#ff5b36] transition-colors" data-lucide="arrow-up-right"></i>
+                </a>
+
+                <!-- GitHub Item -->
+                <a
+                  href="https://github.com/Ravindra001rk"
+                  target="_blank"
+                  class="group flex items-center justify-between rounded-xl border border-white/10 bg-[#0e0e0e] p-5 transition-all hover:border-[#ff5b36]/40 hover:bg-[#ff5b36]/5"
+                >
+                  <div class="flex items-center gap-4">
+                    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#ff5b36]/10 text-[#ff5b36]">
+                      <i class="h-5 w-5" data-lucide="github"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs uppercase tracking-[0.2em] text-[#7d766c]">GitHub Profile</p>
+                      <p class="text-base font-medium text-[#d3c8b8] group-hover:text-white transition-colors">github.com/Ravindra001rk</p>
+                      <p class="text-sm text-[#7d766c]">View repos & open source</p>
+                    </div>
+                  </div>
+                  <i class="h-4 w-4 shrink-0 text-[#3d3830] group-hover:text-[#ff5b36] transition-colors" data-lucide="arrow-up-right"></i>
+                </a>
+
+                <!-- LinkedIn Item -->
+                <a
+                  href="https://linkedin.com/in/ravindra-kushwaha"
+                  target="_blank"
+                  class="group flex items-center justify-between rounded-xl border border-white/10 bg-[#0e0e0e] p-5 transition-all hover:border-[#ff5b36]/40 hover:bg-[#ff5b36]/5"
+                >
+                  <div class="flex items-center gap-4">
+                    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#ff5b36]/10 text-[#ff5b36]">
+                      <i class="h-5 w-5" data-lucide="linkedin"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs uppercase tracking-[0.2em] text-[#7d766c]">LinkedIn</p>
+                      <p class="text-base font-medium text-[#d3c8b8] group-hover:text-white transition-colors">linkedin.com/in/ravindra-kushwaha</p>
+                      <p class="text-sm text-[#7d766c]">Connect professionally</p>
+                    </div>
+                  </div>
+                  <i class="h-4 w-4 shrink-0 text-[#3d3830] group-hover:text-[#ff5b36] transition-colors" data-lucide="arrow-up-right"></i>
+                </a>
+
+                <!-- Phone & Location Item -->
+                <a
+                  href="tel:+9779746522742"
+                  class="group flex items-center justify-between rounded-xl border border-white/10 bg-[#0e0e0e] p-5 transition-all hover:border-[#ff5b36]/40 hover:bg-[#ff5b36]/5"
+                >
+                  <div class="flex items-center gap-4">
+                    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#ff5b36]/10 text-[#ff5b36]">
+                      <i class="h-5 w-5" data-lucide="map-pin"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs uppercase tracking-[0.2em] text-[#7d766c]">Location &amp; Phone</p>
+                      <p class="text-base font-medium text-[#d3c8b8] group-hover:text-white transition-colors">Birgunj, Nepal</p>
+                      <p class="text-sm text-[#7d766c]">+977 9746522742</p>
+                    </div>
+                  </div>
+                  <i class="h-4 w-4 shrink-0 text-[#3d3830] group-hover:text-[#ff5b36] transition-colors" data-lucide="arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Contact Form -->
+          <div class="lg:col-span-7">
+            <div class="rounded-2xl border border-white/10 bg-[#0d0d0d] p-8 md:p-12 shadow-2xl">
+              <h3 class="text-2xl font-bold tracking-tight text-[#d3c8b8] mb-2">
+                Send a Message
+              </h3>
+              <p class="text-sm text-[#7d766c] mb-8">
+                Fill out the form below and I'll respond promptly.
+              </p>
+
+              <form id="contact-form" class="space-y-6">
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  <div>
+                    <label class="block text-xs font-semibold uppercase tracking-[0.16em] text-[#9f978a] mb-2" for="name">
+                      Your Name *
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      placeholder="e.g. Sarah Connor"
+                      class="w-full rounded-xl border border-white/10 bg-[#141414] px-4 py-3.5 text-sm text-[#d3c8b8] placeholder-[#555] transition-colors focus:border-[#ff5b36] focus:bg-[#181818] focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold uppercase tracking-[0.16em] text-[#9f978a] mb-2" for="email">
+                      Email Address *
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="e.g. sarah@example.com"
+                      class="w-full rounded-xl border border-white/10 bg-[#141414] px-4 py-3.5 text-sm text-[#d3c8b8] placeholder-[#555] transition-colors focus:border-[#ff5b36] focus:bg-[#181818] focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  <div>
+                    <label class="block text-xs font-semibold uppercase tracking-[0.16em] text-[#9f978a] mb-2" for="subject">
+                      Project Type / Subject
+                    </label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      class="w-full rounded-xl border border-white/10 bg-[#141414] px-4 py-3.5 text-sm text-[#d3c8b8] transition-colors focus:border-[#ff5b36] focus:bg-[#181818] focus:outline-none"
+                    >
+                      <option value="Full-Stack Web App">Full-Stack MERN Web App</option>
+                      <option value="Frontend UI/UX">Frontend &amp; Responsive UI</option>
+                      <option value="Backend & APIs">Backend, APIs &amp; Database</option>
+                      <option value="Freelance Consultation">Freelance Consultation</option>
+                      <option value="Job Opportunity">Job Opportunity</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold uppercase tracking-[0.16em] text-[#9f978a] mb-2" for="budget">
+                      Expected Timeline
+                    </label>
+                    <select
+                      id="budget"
+                      name="budget"
+                      class="w-full rounded-xl border border-white/10 bg-[#141414] px-4 py-3.5 text-sm text-[#d3c8b8] transition-colors focus:border-[#ff5b36] focus:bg-[#181818] focus:outline-none"
+                    >
+                      <option value="Within 1 Month">Immediately (&lt; 1 Month)</option>
+                      <option value="1-3 Months">1 – 3 Months</option>
+                      <option value="Flexible">Flexible / Ongoing</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold uppercase tracking-[0.16em] text-[#9f978a] mb-2" for="message">
+                    Your Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    placeholder="Describe your project, goals, and any specific requirements..."
+                    class="w-full rounded-xl border border-white/10 bg-[#141414] px-4 py-3.5 text-sm text-[#d3c8b8] placeholder-[#555] transition-colors focus:border-[#ff5b36] focus:bg-[#181818] focus:outline-none"
+                  ></textarea>
+                </div>
+
+                <div class="flex items-center justify-between pt-2">
+             
+                  <button
+                    id="submit-btn"
+                    type="submit"
+                    class="hover-trigger inline-flex items-center gap-3 rounded-full bg-[#ff5b36] px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-[#ff7352] hover:shadow-[0_0_24px_rgba(255,91,54,0.35)]"
+                  >
+                    <span>Send Message</span>
+                    <i class="h-4 w-4" data-lucide="send"></i>
+                  </button>
+                </div>
+              </form>
+
+              <!-- Success Toast / Message Notification -->
+              <div
+                id="form-success-alert"
+                class="hidden mt-6 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5 text-sm text-emerald-300"
+              >
+                <div class="flex items-center gap-3">
+                  <i class="h-5 w-5 text-emerald-400" data-lucide="check-circle-2"></i>
+                  <div>
+                    <p class="font-semibold">Message sent successfully!</p>
+                    <p class="text-xs text-emerald-400/80 mt-0.5">Thank you for reaching out. I'll get back to you shortly.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comprehensive Clean Footer -->
+    <footer class="border-t border-white/10 bg-[#060606] text-[#9f978a]">
+      <!-- Top Footer Banner -->
+      <div class="mx-auto max-w-7xl px-6 py-16 md:px-10 border-b border-white/[0.06]">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div>
+            <h3 class="text-2xl md:text-3xl font-bold tracking-tight text-[#d3c8b8]">
+              Ready to create something remarkable?
+            </h3>
+            <p class="mt-2 text-sm text-[#7d766c]">
+              From concept to live deployment — let's build your next high-performance web app.
+            </p>
+          </div>
+          <div class="flex items-center gap-4">
+            <a
+              href="#contact"
+              class="hover-trigger inline-flex items-center gap-2 rounded-full bg-[#ff5b36] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-[#ff7352]"
+            >
+              <span>Start a Project</span>
+              <i class="h-4 w-4" data-lucide="arrow-right"></i>
+            </a>
+            <a
+              href="#navbar"
+              class="hover-trigger inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#d3c8b8] transition-colors hover:border-[#ff5b36] hover:text-[#ff5b36]"
+              aria-label="Back to top"
+            >
+              <i class="h-4 w-4" data-lucide="arrow-up"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Columns -->
+      <div class="mx-auto max-w-7xl px-6 py-16 md:px-10">
+        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-12">
+          <!-- Col 1: Brand & Bio -->
+          <div class="lg:col-span-5 space-y-4">
+            <a href="#home" class="flex items-center gap-3">
+              <div class="flex h-9 w-9 items-center justify-center rounded-full bg-[#ff5b36] text-white font-bold text-xs">
+                RK
+              </div>
+              <span class="text-base font-bold tracking-tight text-[#d3c8b8]">
+                Ravindra Kushwaha
+              </span>
+            </a>
+            <p class="max-w-sm text-xs leading-6 text-[#7d766c]">
+              Full Stack MERN Developer crafting high-performance, responsive web applications, secure APIs, and intuitive user experiences.
+            </p>
+            <div class="pt-2 flex items-center gap-2 text-xs text-[#7d766c]">
+              <i class="h-4 w-4 text-[#ff5b36]" data-lucide="map-pin"></i>
+              <span>Birgunj, Nepal (UTC+5:45)</span>
+            </div>
+          </div>
+
+          <!-- Col 2: Navigation Links -->
+          <div class="lg:col-span-2 space-y-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#d3c8b8]">
+              Navigation
+            </p>
+            <ul class="space-y-2.5 text-xs">
+              <li>
+                <a class="hover-trigger transition-colors hover:text-[#ff5b36]" href="#home">Home</a>
+              </li>
+              <li>
+                <a class="hover-trigger transition-colors hover:text-[#ff5b36]" href="#about">About</a>
+              </li>
+              <li>
+                <a class="hover-trigger transition-colors hover:text-[#ff5b36]" href="#projects">Projects</a>
+              </li>
+              <li>
+                <a class="hover-trigger transition-colors hover:text-[#ff5b36]" href="#blogs">Blogs</a>
+              </li>
+              <li>
+                <a class="hover-trigger transition-colors hover:text-[#ff5b36]" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Core Stack -->
+          <div class="lg:col-span-2 space-y-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#d3c8b8]">
+              Core Stack
+            </p>
+            <ul class="space-y-2.5 text-xs text-[#7d766c]">
+              <li>React &amp; Next.js</li>
+              <li>Node.js &amp; Express</li>
+              <li>MongoDB &amp; Mongoose</li>
+              <li>REST &amp; WebSockets</li>
+              <li>Tailwind CSS</li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Connect & Socials -->
+          <div class="lg:col-span-3 space-y-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#d3c8b8]">
+              Connect
+            </p>
+            <div class="flex flex-col space-y-2.5 text-xs">
+              <a
+                class="hover-trigger inline-flex items-center gap-2 transition-colors hover:text-[#ff5b36]"
+                href="https://github.com/Ravindra001rk"
+                target="_blank"
+              >
+                <i class="h-4 w-4" data-lucide="github"></i>
+                <span>github.com/Ravindra001rk</span>
+              </a>
+              <a
+                class="hover-trigger inline-flex items-center gap-2 transition-colors hover:text-[#ff5b36]"
+                href="mailto:ravindrakushwaha2k20@gmail.com"
+              >
+                <i class="h-4 w-4" data-lucide="mail"></i>
+                <span>Email Ravindra</span>
+              </a>
+              <a
+                class="hover-trigger inline-flex items-center gap-2 transition-colors hover:text-[#ff5b36]"
+                href="tel:+9779746522742"
+              >
+                <i class="h-4 w-4" data-lucide="phone"></i>
+                <span>+977 9746522742</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Copyright Row -->
+        <div class="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-8 text-xs text-[#666] sm:flex-row">
+          <p>© 2026 Ravindra Kushwaha. All rights reserved.</p>
+          <div class="flex items-center gap-6">
+            <span>Designed &amp; Built for Web Excellence</span>
+            <a href="#navbar" class="hover-trigger text-[#ff5b36] hover:underline">Top ↑</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modular Application JS Scripts -->
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
